@@ -1,0 +1,4 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+const sb=createClient(Deno.env.get('SUPABASE_URL')!,Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);const cors={'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'authorization, x-client-info, apikey, content-type'}
+Deno.serve(async req=>{if(req.method==='OPTIONS')return new Response('ok',{headers:cors});try{const {player_id,event,meta,path}=await req.json();if(!event)throw Error('MISSING_EVENT');const r=await sb.from('analytics_events').insert({player_id:player_id||null,event,meta:meta||{},path:path||null});if(r.error)throw r.error;return json({ok:true})}catch(e){return json({ok:false,error:String(e.message||e)},400)}})
+function json(x,status=200){return new Response(JSON.stringify(x),{status,headers:{...cors,'content-type':'application/json'}})}

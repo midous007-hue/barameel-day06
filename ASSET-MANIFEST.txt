@@ -1,0 +1,47 @@
+BARAMEEL WORLD V16 — CURRENT ASSET MANIFEST
+
+ALREADY INCLUDED — DO NOT DUPLICATE
+------------------------------------
+assets/barameel-world-splash.webp
+assets/barameel-world.webp
+assets/screen01-start.webp
+assets/screen04-rewards.webp
+assets/screen05-scanner.webp
+assets/screen06-puzzle.webp
+assets/barameel-universal-qr.png
+
+ONE QR ONLY
+-----------
+The file above is the only gameplay QR asset.
+It encodes: BARAMEEL-UNIVERSAL
+Do not add QR files for individual pieces, images, collections, or checkpoints.
+
+RUNNER ART — UPLOAD ONLY IF YOU HAVE THE FINAL APPROVED ART
+------------------------------------------------------------
+assets/screen02-rookie.png
+assets/screen02-skater.png
+assets/screen02-brona.png
+assets/screen02-racer.png
+assets/screen02-chiller.png
+assets/screen02-dreamer.png
+
+assets/screen03-rookie.png
+assets/screen03-skater.png
+assets/screen03-brona.png
+assets/screen03-racer.png
+assets/screen03-chiller.png
+assets/screen03-dreamer.png
+
+WORLD EXPERIENCE ART — NOT YET REQUIRED
+---------------------------------------
+Do NOT upload Duo Link, Menu, Post, or My Barameel artwork yet.
+Those screens have not been visually finalized.
+When each artwork is approved, its exact filename will be added to this manifest first.
+
+COLLECTION ART
+--------------
+Current collection path:
+assets/collections/collection01/masters/
+
+Keep the 10 master images. Do not create a QR folder inside the collection.
+The pieces are selected by the server-side reward engine, not by printed QR codes.

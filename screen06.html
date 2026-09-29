@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>BARAMEEL RUN — ALEXANDRIA Collection</title>
+<link rel="stylesheet" href="./styles.css?v=20260929-16">
+<link rel="preload" as="image" href="./assets/screen06-puzzle.webp">
+</head>
+<body>
+<main class="collection-stage">
+  <img id="art" class="collection-art" src="./assets/screen06-puzzle.webp" alt="ALEXANDRIA Collection" fetchpriority="high" decoding="async">
+  <button id="back" class="collection-back" aria-label="Back"></button>
+  <select id="select" class="collection-select" aria-label="Choose collection">
+    <option value="collection01">ALEXANDRIA</option>
+  </select>
+  <div id="heroGrid" class="hero-grid" aria-label="Current collection image"></div>
+  <div id="reward" class="reward-text" aria-live="polite"></div>
+  <div id="rewardSub" class="reward-sub"></div>
+  <div class="collection-actions" aria-label="Collection actions">
+    <button id="myRewards" class="collection-action" type="button" aria-label="My Rewards"></button>
+    <button id="scanMore" class="collection-action" type="button" aria-label="Scan More"></button>
+  </div>
+  <div id="thumbs" class="collection-thumbs" aria-label="Collection images"></div>
+  <div id="completeFlash" class="complete-flash" aria-hidden="true"></div>
+</main>
+<script src="./app.js?v=20260929-16"></script>
+<script>
+(async()=>{
+  const params=new URLSearchParams(location.search);
+  const collection=params.get('collection')||'collection01';
+  const selected=params.get('image')||'image01';
+  let cfg;
+  try{cfg=await BR.fetchCollection(collection)}catch(e){return}
+  const hero=document.getElementById('heroGrid');
+  const thumbs=document.getElementById('thumbs');
+  const reward=document.getElementById('reward');
+  const sub=document.getElementById('rewardSub');
+  const select=document.getElementById('select');
+  let current=cfg.images.find(x=>x.imageId===selected)||cfg.images[0];
+  select.value=collection;
+
+  function crop(cell,piece,master){
+    cell.style.backgroundImage=`url("./${master}")`;
+    cell.style.backgroundSize='300% 300%';
+    cell.style.backgroundPosition=`${(piece.column-1)*50}% ${(piece.row-1)*50}%`;
+  }
+
+  function renderHero(){
+    hero.innerHTML='';
+    hero.classList.remove('completed');
+    const complete=BR.count(collection,current.imageId)===9;
+    if(complete){
+      const img=document.createElement('img');
+      img.className='completed-image'; img.alt=current.displayName; img.src=`./${current.masterFile}`;
+      img.onerror=()=>renderPiecesOnly();
+      hero.classList.add('completed'); hero.appendChild(img);
+      const sheen=document.createElement('div'); sheen.className='completion-sheen'; hero.appendChild(sheen);
+      return;
+    }
+    renderPiecesOnly();
+  }
+  function renderPiecesOnly(){
+    hero.innerHTML=''; hero.classList.remove('completed');
+    for(let n=1;n<=9;n++){
+      const piece=current.pieces[n-1];
+      const cell=document.createElement('div'); cell.className='hero-piece';
+      crop(cell,piece,current.masterFile);
+      cell.classList.add(BR.hasPiece(collection,current.imageId,n)?'is-collected':'is-missing');
+      hero.appendChild(cell);
+    }
+  }
+
+  // Exact outer card hit areas measured against the supplied 954x1649 artwork.
+  const cardPositions=[
+    [2.62,71.07,18.24,11.83],[22.12,71.07,17.92,11.83],[41.19,71.07,17.92,11.83],[60.17,71.07,17.82,11.83],[79.35,71.07,18.24,11.83],
+    [2.62,83.38,18.24,12.07],[22.12,83.38,17.92,12.07],[41.19,83.38,17.92,12.07],[60.17,83.38,17.92,12.07],[79.35,83.38,18.24,12.07]
+  ];
+
+  function thumb(im,index){
+    const pos=cardPositions[index];
+    const wrap=document.createElement('button');
+    wrap.type='button'; wrap.className='collection-thumb'; wrap.dataset.image=im.imageId;
+    wrap.style.left=pos[0]+'%'; wrap.style.top=pos[1]+'%'; wrap.style.width=pos[2]+'%'; wrap.style.height=pos[3]+'%';
+    const grid=document.createElement('div'); grid.className='thumb-grid';
+    for(let n=1;n<=9;n++){
+      const piece=im.pieces[n-1],cell=document.createElement('span'); cell.className='thumb-piece';
+      crop(cell,piece,im.masterFile);
+      cell.classList.add(BR.hasPiece(collection,im.imageId,n)?'is-collected':'is-missing');
+      grid.appendChild(cell);
+    }
+    // The yellow 1–10 circles and the “/9” artwork are already part of the master screen art.
+    // Only the live numerator is drawn here, aligned immediately before the printed /9.
+    const count=document.createElement('span'); count.className='thumb-count'; count.textContent=String(BR.count(collection,im.imageId));
+    wrap.append(grid,count);
+    wrap.onclick=()=>{current=im; render(); BR.play('tap')};
+    return wrap;
+  }
+
+  function renderThumbs(){
+    thumbs.innerHTML='';
+    cfg.images.slice(0,10).forEach((im,index)=>thumbs.appendChild(thumb(im,index)));
+  }
+  function render(){renderHero();renderThumbs();}
+
+  function rewardKey(r){return `${r.at||0}|${r.collection_id||r.collection||''}|${r.image_id||r.image||''}|${r.piece_number||r.piece||''}`}
+  function animateReward(){
+    const r=BR.state.lastReward;
+    const amount=Number(r?.points||0);
+    if(!r||!amount||r.duplicate)return;
+    const key=rewardKey(r);
+    if(localStorage.getItem('barameelRewardShownKey16')===key){reward.textContent='+'+amount.toLocaleString();return}
+    localStorage.setItem('barameelRewardShownKey16',key);
+    const start=performance.now(),duration=2300;
+    BR.playPointsCountUp(amount,duration);
+    function tick(now){
+      const t=Math.min(1,(now-start)/duration),e=1-Math.pow(1-t,3);
+      reward.textContent='+'+Math.round(amount*e).toLocaleString();
+      const pulse=Math.sin(t*Math.PI); reward.style.transform=`rotate(-5deg) scale(${1+0.26*pulse})`;
+      if(t<1)requestAnimationFrame(tick);else{reward.textContent='+'+amount.toLocaleString();setTimeout(()=>reward.style.transform='rotate(-5deg)',260)}
+    }
+    requestAnimationFrame(tick);
+  }
+  function completeEffect(){
+    const r=BR.state.lastReward;
+    const image=r?.image_id||r?.image;
+    const justCompleted=BR.count(collection,current.imageId)===9&&r&&image===current.imageId&&!r.duplicate;
+    if(!justCompleted)return;
+    const key=rewardKey(r)+'|complete';
+    if(localStorage.getItem('barameelCompletionShownKey16')===key)return;
+    localStorage.setItem('barameelCompletionShownKey16',key);
+    const f=document.getElementById('completeFlash'); f.classList.remove('on'); void document.body.offsetWidth; f.classList.add('on'); BR.playCompletionSound();
+  }
+
+  render();
+  animateReward();
+  completeEffect();
+  document.getElementById('back').onclick=()=>BR.goAfter('screen05.html','back',180);
+  document.getElementById('myRewards').onclick=()=>BR.goAfter('screen04.html','confirm',180);
+  document.getElementById('scanMore').onclick=()=>BR.goAfter('screen05.html','scan',220);
+  select.onchange=e=>{const im=cfg.images.find(x=>x.imageId===e.target.value);if(im){current=im;render()}};
+  BR.track('collection_view');
+})();
+</script>
+<script src="./register-sw.js?v=20260929-16"></script>
+</body></html>

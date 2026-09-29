@@ -1,0 +1,11 @@
+UPLOAD THESE 10 MASTER IMAGES INTO THIS FOLDER:
+image01-master.png
+image02-master.png
+image03-master.png
+image04-master.png
+image05-master.png
+image06-master.png
+image07-master.png
+image08-master.png
+image09-master.png
+image10-master.png

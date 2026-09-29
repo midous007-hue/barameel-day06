@@ -1,0 +1,1156 @@
+{
+  "collectionId": "collection01",
+  "displayName": "ALEXANDRIA",
+  "status": "implementation-ready",
+  "imageCount": 10,
+  "piecesPerImage": 9,
+  "grid": {
+    "rows": 3,
+    "columns": 3
+  },
+  "printReferenceTotal": 10000,
+  "rarityEconomy": [
+    {
+      "rarity": "COMMON",
+      "points": 20000,
+      "tierTotalQty": 7000,
+      "tierTotalPercent": 70.0
+    },
+    {
+      "rarity": "UNCOMMON",
+      "points": 40000,
+      "tierTotalQty": 2000,
+      "tierTotalPercent": 20.0
+    },
+    {
+      "rarity": "RARE",
+      "points": 60000,
+      "tierTotalQty": 800,
+      "tierTotalPercent": 8.0
+    },
+    {
+      "rarity": "EPIC",
+      "points": 100000,
+      "tierTotalQty": 150,
+      "tierTotalPercent": 1.5
+    },
+    {
+      "rarity": "LEGENDARY",
+      "points": 150000,
+      "tierTotalQty": 30,
+      "tierTotalPercent": 0.3
+    },
+    {
+      "rarity": "MYTHIC",
+      "points": 200000,
+      "tierTotalQty": 20,
+      "tierTotalPercent": 0.2
+    }
+  ],
+  "images": [
+    {
+      "imageId": "image01",
+      "imageNumber": 1,
+      "displayName": "ALEXANDRIA 01",
+      "description": "Alexandria Library & Corniche Sunset",
+      "masterFile": "assets/collections/collection01/masters/image01-master.png",
+      "thumbnailFile": "assets/collections/collection01/thumbs/image01.jpg",
+      "pieces": [
+        {
+          "piece_id": "image01-piece01",
+          "piece_number": 1,
+          "row": 1,
+          "column": 1,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 75,
+          "print_share_percent": 0.75,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image01-piece02",
+          "piece_number": 2,
+          "row": 1,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 75,
+          "print_share_percent": 0.75,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image01-piece03",
+          "piece_number": 3,
+          "row": 1,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image01-piece04",
+          "piece_number": 4,
+          "row": 2,
+          "column": 1,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 58,
+          "print_share_percent": 0.58,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image01-piece05",
+          "piece_number": 5,
+          "row": 2,
+          "column": 2,
+          "rarity": "EPIC",
+          "points": 100000,
+          "print_qty_per_10000": 38,
+          "print_share_percent": 0.38,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image01-piece06",
+          "piece_number": 6,
+          "row": 2,
+          "column": 3,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 58,
+          "print_share_percent": 0.58,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image01-piece07",
+          "piece_number": 7,
+          "row": 3,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image01-piece08",
+          "piece_number": 8,
+          "row": 3,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image01-piece09",
+          "piece_number": 9,
+          "row": 3,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        }
+      ]
+    },
+    {
+      "imageId": "image02",
+      "imageNumber": 2,
+      "displayName": "ALEXANDRIA 02",
+      "description": "Blue Tram & Minaret in Rain",
+      "masterFile": "assets/collections/collection01/masters/image02-master.png",
+      "thumbnailFile": "assets/collections/collection01/thumbs/image02.jpg",
+      "pieces": [
+        {
+          "piece_id": "image02-piece01",
+          "piece_number": 1,
+          "row": 1,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image02-piece02",
+          "piece_number": 2,
+          "row": 1,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image02-piece03",
+          "piece_number": 3,
+          "row": 1,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image02-piece04",
+          "piece_number": 4,
+          "row": 2,
+          "column": 1,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image02-piece05",
+          "piece_number": 5,
+          "row": 2,
+          "column": 2,
+          "rarity": "EPIC",
+          "points": 100000,
+          "print_qty_per_10000": 38,
+          "print_share_percent": 0.38,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image02-piece06",
+          "piece_number": 6,
+          "row": 2,
+          "column": 3,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image02-piece07",
+          "piece_number": 7,
+          "row": 3,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image02-piece08",
+          "piece_number": 8,
+          "row": 3,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image02-piece09",
+          "piece_number": 9,
+          "row": 3,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        }
+      ]
+    },
+    {
+      "imageId": "image03",
+      "imageNumber": 3,
+      "displayName": "ALEXANDRIA 03",
+      "description": "Qaitbay Citadel & Fishing Harbor",
+      "masterFile": "assets/collections/collection01/masters/image03-master.png",
+      "thumbnailFile": "assets/collections/collection01/thumbs/image03.jpg",
+      "pieces": [
+        {
+          "piece_id": "image03-piece01",
+          "piece_number": 1,
+          "row": 1,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image03-piece02",
+          "piece_number": 2,
+          "row": 1,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image03-piece03",
+          "piece_number": 3,
+          "row": 1,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image03-piece04",
+          "piece_number": 4,
+          "row": 2,
+          "column": 1,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image03-piece05",
+          "piece_number": 5,
+          "row": 2,
+          "column": 2,
+          "rarity": "MYTHIC",
+          "points": 200000,
+          "print_qty_per_10000": 20,
+          "print_share_percent": 0.2,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image03-piece06",
+          "piece_number": 6,
+          "row": 2,
+          "column": 3,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image03-piece07",
+          "piece_number": 7,
+          "row": 3,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image03-piece08",
+          "piece_number": 8,
+          "row": 3,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image03-piece09",
+          "piece_number": 9,
+          "row": 3,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        }
+      ]
+    },
+    {
+      "imageId": "image04",
+      "imageNumber": 4,
+      "displayName": "ALEXANDRIA 04",
+      "description": "Yellow Tram & Historic Facade",
+      "masterFile": "assets/collections/collection01/masters/image04-master.png",
+      "thumbnailFile": "assets/collections/collection01/thumbs/image04.jpg",
+      "pieces": [
+        {
+          "piece_id": "image04-piece01",
+          "piece_number": 1,
+          "row": 1,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image04-piece02",
+          "piece_number": 2,
+          "row": 1,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image04-piece03",
+          "piece_number": 3,
+          "row": 1,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image04-piece04",
+          "piece_number": 4,
+          "row": 2,
+          "column": 1,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image04-piece05",
+          "piece_number": 5,
+          "row": 2,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image04-piece06",
+          "piece_number": 6,
+          "row": 2,
+          "column": 3,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image04-piece07",
+          "piece_number": 7,
+          "row": 3,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image04-piece08",
+          "piece_number": 8,
+          "row": 3,
+          "column": 2,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image04-piece09",
+          "piece_number": 9,
+          "row": 3,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        }
+      ]
+    },
+    {
+      "imageId": "image05",
+      "imageNumber": 5,
+      "displayName": "ALEXANDRIA 05",
+      "description": "Historic Street to the Sea & Taxi",
+      "masterFile": "assets/collections/collection01/masters/image05-master.png",
+      "thumbnailFile": "assets/collections/collection01/thumbs/image05.jpg",
+      "pieces": [
+        {
+          "piece_id": "image05-piece01",
+          "piece_number": 1,
+          "row": 1,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image05-piece02",
+          "piece_number": 2,
+          "row": 1,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image05-piece03",
+          "piece_number": 3,
+          "row": 1,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image05-piece04",
+          "piece_number": 4,
+          "row": 2,
+          "column": 1,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image05-piece05",
+          "piece_number": 5,
+          "row": 2,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image05-piece06",
+          "piece_number": 6,
+          "row": 2,
+          "column": 3,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image05-piece07",
+          "piece_number": 7,
+          "row": 3,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image05-piece08",
+          "piece_number": 8,
+          "row": 3,
+          "column": 2,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image05-piece09",
+          "piece_number": 9,
+          "row": 3,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        }
+      ]
+    },
+    {
+      "imageId": "image06",
+      "imageNumber": 6,
+      "displayName": "ALEXANDRIA 06",
+      "description": "Au Pavillon de Florelle",
+      "masterFile": "assets/collections/collection01/masters/image06-master.png",
+      "thumbnailFile": "assets/collections/collection01/thumbs/image06.jpg",
+      "pieces": [
+        {
+          "piece_id": "image06-piece01",
+          "piece_number": 1,
+          "row": 1,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image06-piece02",
+          "piece_number": 2,
+          "row": 1,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image06-piece03",
+          "piece_number": 3,
+          "row": 1,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image06-piece04",
+          "piece_number": 4,
+          "row": 2,
+          "column": 1,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image06-piece05",
+          "piece_number": 5,
+          "row": 2,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image06-piece06",
+          "piece_number": 6,
+          "row": 2,
+          "column": 3,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image06-piece07",
+          "piece_number": 7,
+          "row": 3,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image06-piece08",
+          "piece_number": 8,
+          "row": 3,
+          "column": 2,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image06-piece09",
+          "piece_number": 9,
+          "row": 3,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        }
+      ]
+    },
+    {
+      "imageId": "image07",
+      "imageNumber": 7,
+      "displayName": "ALEXANDRIA 07",
+      "description": "Historic Monument & Sunset Hotel",
+      "masterFile": "assets/collections/collection01/masters/image07-master.png",
+      "thumbnailFile": "assets/collections/collection01/thumbs/image07.jpg",
+      "pieces": [
+        {
+          "piece_id": "image07-piece01",
+          "piece_number": 1,
+          "row": 1,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image07-piece02",
+          "piece_number": 2,
+          "row": 1,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image07-piece03",
+          "piece_number": 3,
+          "row": 1,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image07-piece04",
+          "piece_number": 4,
+          "row": 2,
+          "column": 1,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image07-piece05",
+          "piece_number": 5,
+          "row": 2,
+          "column": 2,
+          "rarity": "EPIC",
+          "points": 100000,
+          "print_qty_per_10000": 37,
+          "print_share_percent": 0.37,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image07-piece06",
+          "piece_number": 6,
+          "row": 2,
+          "column": 3,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image07-piece07",
+          "piece_number": 7,
+          "row": 3,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image07-piece08",
+          "piece_number": 8,
+          "row": 3,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image07-piece09",
+          "piece_number": 9,
+          "row": 3,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        }
+      ]
+    },
+    {
+      "imageId": "image08",
+      "imageNumber": 8,
+      "displayName": "ALEXANDRIA 08",
+      "description": "Fishing Boats Canal",
+      "masterFile": "assets/collections/collection01/masters/image08-master.png",
+      "thumbnailFile": "assets/collections/collection01/thumbs/image08.jpg",
+      "pieces": [
+        {
+          "piece_id": "image08-piece01",
+          "piece_number": 1,
+          "row": 1,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image08-piece02",
+          "piece_number": 2,
+          "row": 1,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image08-piece03",
+          "piece_number": 3,
+          "row": 1,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image08-piece04",
+          "piece_number": 4,
+          "row": 2,
+          "column": 1,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image08-piece05",
+          "piece_number": 5,
+          "row": 2,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image08-piece06",
+          "piece_number": 6,
+          "row": 2,
+          "column": 3,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image08-piece07",
+          "piece_number": 7,
+          "row": 3,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image08-piece08",
+          "piece_number": 8,
+          "row": 3,
+          "column": 2,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 163,
+          "print_share_percent": 1.63,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image08-piece09",
+          "piece_number": 9,
+          "row": 3,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 162,
+          "print_share_percent": 1.62,
+          "piece_source": "master crop"
+        }
+      ]
+    },
+    {
+      "imageId": "image09",
+      "imageNumber": 9,
+      "displayName": "ALEXANDRIA 09",
+      "description": "Stanley Bridge at Night",
+      "masterFile": "assets/collections/collection01/masters/image09-master.png",
+      "thumbnailFile": "assets/collections/collection01/thumbs/image09.jpg",
+      "pieces": [
+        {
+          "piece_id": "image09-piece01",
+          "piece_number": 1,
+          "row": 1,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 162,
+          "print_share_percent": 1.62,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image09-piece02",
+          "piece_number": 2,
+          "row": 1,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image09-piece03",
+          "piece_number": 3,
+          "row": 1,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 162,
+          "print_share_percent": 1.62,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image09-piece04",
+          "piece_number": 4,
+          "row": 2,
+          "column": 1,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image09-piece05",
+          "piece_number": 5,
+          "row": 2,
+          "column": 2,
+          "rarity": "LEGENDARY",
+          "points": 150000,
+          "print_qty_per_10000": 30,
+          "print_share_percent": 0.3,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image09-piece06",
+          "piece_number": 6,
+          "row": 2,
+          "column": 3,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image09-piece07",
+          "piece_number": 7,
+          "row": 3,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 162,
+          "print_share_percent": 1.62,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image09-piece08",
+          "piece_number": 8,
+          "row": 3,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image09-piece09",
+          "piece_number": 9,
+          "row": 3,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 162,
+          "print_share_percent": 1.62,
+          "piece_source": "master crop"
+        }
+      ]
+    },
+    {
+      "imageId": "image10",
+      "imageNumber": 10,
+      "displayName": "ALEXANDRIA 10",
+      "description": "Alexandria Sunset Panorama / Existing Master",
+      "masterFile": "assets/collections/collection01/masters/image10-master.png",
+      "thumbnailFile": "assets/collections/collection01/thumbs/image10.jpg",
+      "pieces": [
+        {
+          "piece_id": "image10-piece01",
+          "piece_number": 1,
+          "row": 1,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 162,
+          "print_share_percent": 1.62,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image10-piece02",
+          "piece_number": 2,
+          "row": 1,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image10-piece03",
+          "piece_number": 3,
+          "row": 1,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 162,
+          "print_share_percent": 1.62,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image10-piece04",
+          "piece_number": 4,
+          "row": 2,
+          "column": 1,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image10-piece05",
+          "piece_number": 5,
+          "row": 2,
+          "column": 2,
+          "rarity": "EPIC",
+          "points": 100000,
+          "print_qty_per_10000": 37,
+          "print_share_percent": 0.37,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image10-piece06",
+          "piece_number": 6,
+          "row": 2,
+          "column": 3,
+          "rarity": "RARE",
+          "points": 60000,
+          "print_qty_per_10000": 57,
+          "print_share_percent": 0.57,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image10-piece07",
+          "piece_number": 7,
+          "row": 3,
+          "column": 1,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 162,
+          "print_share_percent": 1.62,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image10-piece08",
+          "piece_number": 8,
+          "row": 3,
+          "column": 2,
+          "rarity": "UNCOMMON",
+          "points": 40000,
+          "print_qty_per_10000": 74,
+          "print_share_percent": 0.74,
+          "piece_source": "master crop"
+        },
+        {
+          "piece_id": "image10-piece09",
+          "piece_number": 9,
+          "row": 3,
+          "column": 3,
+          "rarity": "COMMON",
+          "points": 20000,
+          "print_qty_per_10000": 162,
+          "print_share_percent": 1.62,
+          "piece_source": "master crop"
+        }
+      ]
+    }
+  ],
+  "uiRules": {
+    "topDropdown": "Select collection; current collection is ALEXANDRIA.",
+    "mainImage": "Shows the selected image, or auto-focuses to the image identified by the latest successful QR scan.",
+    "thumbnailGallery": "10 images; undiscovered images are faded/desaturated; discovered images are full color; each shows collectedCount/9.",
+    "pieceGrid": "3x3; piece positions are fixed by piece_number. Collected pieces fill their exact cell.",
+    "completedImage": "At 9/9, replace the 3x3 piece grid with the full master image after a golden completion effect.",
+    "lastReward": "Shows the points awarded by the latest newly collected QR piece, with arcade-style count-up/reward animation.",
+    "dashboardPoints": "Add the newly awarded points to the player's total points balance.",
+    "duplicateScan": "Do not add points or duplicate the piece when the same piece has already been collected.",
+    "marks": "Do not change marks when collecting a puzzle piece; marks are reserved for the later redemption system.",
+    "weeklyPoints": "Track points earned during the current week separately from lifetime total points.",
+    "checkpoints": "Track checkpoint count separately from points and marks."
+  },
+  "pieceRendering": "client-side-3x3-crop-from-master"
+}
