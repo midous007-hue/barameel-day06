@@ -5,84 +5,129 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta name="theme-color" content="#061f27">
 <title>BARAMEEL RUN — Scan QR</title>
-<link rel="stylesheet" href="./styles.css?v=20260929-17">
-<script src="./config.js?v=20260929-17"></script>
+<link rel="stylesheet" href="./styles.css?v=20260929-18">
+<script src="./config.js?v=20260929-18"></script>
 </head>
 <body>
 <main class="scan-stage">
   <img class="scan-art" src="./assets/screen05-scanner.webp" alt="Scan QR" fetchpriority="high" decoding="async">
   <a id="back" class="scan-back-hotspot" href="./screen04.html" aria-label="Back"></a>
-  <div class="camera-window" id="cameraWindow" aria-label="QR camera area">
+  <div class="camera-window" id="cameraWindow" aria-label="Live QR camera">
     <video id="video" playsinline webkit-playsinline muted autoplay></video>
     <div id="scanLine" aria-hidden="true"></div>
     <div id="flash" class="success-flash" aria-hidden="true"></div>
   </div>
   <button id="open" type="button" class="scan-open-hotspot" aria-label="Open camera and scan QR"><span class="sr-only">Open camera and scan QR</span></button>
   <button id="collections" type="button" class="scan-collections-hotspot" aria-label="Direct to my collections"><span class="sr-only">Direct to my collections</span></button>
-  <canvas id="scanCanvas" width="900" height="900" hidden></canvas>
+  <canvas id="scanCanvas" width="960" height="720" hidden></canvas>
   <div id="msg" class="scan-message" aria-live="polite"></div>
 </main>
-<script src="./app.js?v=20260929-17"></script>
+<script src="./app.js?v=20260929-18"></script>
 <script>
 (()=>{
   const video=document.getElementById('video'),cam=document.getElementById('cameraWindow'),msg=document.getElementById('msg'),canvas=document.getElementById('scanCanvas'),ctx=canvas.getContext('2d',{willReadFrequently:true}),open=document.getElementById('open'),back=document.getElementById('back'),collections=document.getElementById('collections'),flash=document.getElementById('flash'),scanLine=document.getElementById('scanLine');
-  let stream=null,detector=null,raf=0,locked=false,starting=false,lastFrame=0,jsqrPromise=null,lastBad=0;
+  let stream=null,detector=null,raf=0,locked=false,starting=false,lastFrame=0,lastBad=0,jsqrPromise=null,detectorFailures=0;
   const status=t=>{msg.textContent=t||'';msg.classList.toggle('show',!!t)};
   function stop(){cancelAnimationFrame(raf);raf=0;if(stream)stream.getTracks().forEach(t=>{try{t.stop()}catch{}});stream=null;try{video.pause()}catch{}video.srcObject=null;cam.classList.remove('active');scanLine.classList.remove('on');detector=null;starting=false}
   function secureOK(){return window.isSecureContext&&navigator.mediaDevices&&typeof navigator.mediaDevices.getUserMedia==='function'}
-  async function nativeDetector(){detector=null;if(!('BarcodeDetector' in window))return false;try{const f=await BarcodeDetector.getSupportedFormats();if(f.includes('qr_code')){detector=new BarcodeDetector({formats:['qr_code']});return true}}catch{}return false}
+  async function nativeDetector(){
+    detector=null;detectorFailures=0;
+    if(!('BarcodeDetector' in window))return false;
+    try{
+      const formats=await BarcodeDetector.getSupportedFormats();
+      if(formats.includes('qr_code')){detector=new BarcodeDetector({formats:['qr_code']});return true}
+    }catch{}
+    return false
+  }
   function loadJsQR(){
     if(typeof window.jsQR==='function')return Promise.resolve(true);
     if(jsqrPromise)return jsqrPromise;
     jsqrPromise=new Promise(resolve=>{
-      const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js';s.async=true;s.onload=()=>resolve(typeof window.jsQR==='function');s.onerror=()=>{
-        const s2=document.createElement('script');s2.src='https://unpkg.com/jsqr@1.4.0/dist/jsQR.js';s2.async=true;s2.onload=()=>resolve(typeof window.jsQR==='function');s2.onerror=()=>resolve(false);document.head.appendChild(s2)
-      };document.head.appendChild(s)
+      const urls=[
+        'https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js',
+        'https://unpkg.com/jsqr@1.4.0/dist/jsQR.js'
+      ];
+      let i=0;
+      const next=()=>{
+        if(typeof window.jsQR==='function'){resolve(true);return}
+        if(i>=urls.length){resolve(false);return}
+        const s=document.createElement('script');s.src=urls[i++];s.async=true;s.onload=()=>resolve(typeof window.jsQR==='function');s.onerror=next;document.head.appendChild(s)
+      };
+      next();
     });
     return jsqrPromise;
   }
   async function start(){
-    if(starting||stream)return;
+    if(starting||stream||locked)return;
     starting=true;locked=false;BR.play('scan');status('OPENING CAMERA…');
     if(!secureOK()){status('CAMERA NEEDS HTTPS');BR.play('error');starting=false;return}
     let s=null;
     const attempts=[
-      {audio:false,video:{facingMode:{ideal:'environment'},width:{ideal:1920},height:{ideal:1080}}},
+      {audio:false,video:{facingMode:{exact:'environment'},width:{ideal:1920},height:{ideal:1080},frameRate:{ideal:30,max:30}}},
       {audio:false,video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}}},
       {audio:false,video:{facingMode:{ideal:'environment'}}}
     ];
     for(const c of attempts){try{s=await navigator.mediaDevices.getUserMedia(c);if(s)break}catch{}}
     if(!s){status('CAMERA ACCESS DENIED OR UNAVAILABLE');BR.play('error');starting=false;return}
     stream=s;video.srcObject=stream;video.muted=true;video.setAttribute('playsinline','');video.setAttribute('webkit-playsinline','');
+    const track=stream.getVideoTracks()[0];
+    try{
+      const caps=track.getCapabilities?.();
+      if(caps?.focusMode?.includes('continuous')) await track.applyConstraints({advanced:[{focusMode:'continuous'}]});
+    }catch{}
     try{await video.play()}catch{try{video.muted=true;await video.play()}catch{}}
-    cam.classList.add('active');scanLine.classList.add('on');starting=false;status('POINT CAMERA AT THE BARAMEEL QR');
-    const nativeOK=await nativeDetector();
-    if(!nativeOK)await loadJsQR();
-    if(!detector&&typeof window.jsQR!=='function'){status('CAMERA ACTIVE — QR READER UNAVAILABLE');BR.play('error');return}
+    cam.classList.add('active');scanLine.classList.add('on');starting=false;status('QR CODE ONLY — POINT CAMERA AT THE BARAMEEL QR');
+    // Start both readers. If BarcodeDetector is present but fails on video, canvas detection + jsQR remain available.
+    await nativeDetector();
+    loadJsQR();
+    if(!detector && typeof window.jsQR!=='function')status('QR READER STARTING…');
     loop();
   }
-  function scanJsQR(){
-    if(typeof window.jsQR!=='function'||video.readyState<2)return null;
+  function drawFrame(){
+    if(video.readyState<2)return null;
     const vw=video.videoWidth||1280,vh=video.videoHeight||720;
-    // Read the whole frame first. The visible camera window is only a viewport; the QR can be anywhere inside it.
-    const scale=Math.min(1,1100/Math.max(vw,vh));const w=Math.max(640,Math.round(vw*scale)),h=Math.max(480,Math.round(vh*scale));
-    canvas.width=w;canvas.height=h;ctx.drawImage(video,0,0,w,h);
-    const img=ctx.getImageData(0,0,w,h);return window.jsQR(img.data,w,h,{inversionAttempts:'attemptBoth'});
+    const max=960,scale=Math.min(1,max/Math.max(vw,vh));
+    const w=Math.max(640,Math.round(vw*scale)),h=Math.max(480,Math.round(vh*scale));
+    canvas.width=w;canvas.height=h;ctx.drawImage(video,0,0,w,h);return {w,h};
+  }
+  async function tryNative(frame){
+    if(!detector||!frame)return null;
+    try{
+      // Canvas detection is more reliable across Android Chrome builds than repeatedly passing the video element.
+      const codes=await detector.detect(canvas);
+      detectorFailures=0;
+      if(codes?.length)return codes[0].rawValue||'';
+    }catch{
+      detectorFailures++;
+      if(detectorFailures>=3)detector=null;
+    }
+    return null;
+  }
+  function tryJsQR(frame){
+    if(!frame||typeof window.jsQR!=='function')return null;
+    try{
+      const image=ctx.getImageData(0,0,frame.w,frame.h);
+      const code=window.jsQR(image.data,frame.w,frame.h,{inversionAttempts:'attemptBoth'});
+      return code?.data||null;
+    }catch{return null}
   }
   async function loop(){
     if(!stream||locked)return;
-    const now=performance.now();if(now-lastFrame<90){raf=requestAnimationFrame(loop);return}lastFrame=now;
+    const now=performance.now();if(now-lastFrame<120){raf=requestAnimationFrame(loop);return}lastFrame=now;
     try{
-      if(video.readyState>=2){
-        if(detector){const codes=await detector.detect(video);if(codes?.length){const raw=codes[0].rawValue||'';if(raw){await handle(raw);return}}}
-        const code=scanJsQR();if(code?.data){await handle(code.data);return}
+      const frame=drawFrame();
+      if(frame){
+        let raw=await tryNative(frame);
+        if(!raw)raw=tryJsQR(frame);
+        if(raw){await handle(raw);return}
       }
     }catch{}
     raf=requestAnimationFrame(loop);
   }
   async function handle(raw){
-    if(locked)return;const q=BR.parseUniversalQR(raw);
-    if(!q){const n=Date.now();if(n-lastBad>1500){status('POINT AT THE BARAMEEL MASTER QR');BR.play('error');lastBad=n}raf=requestAnimationFrame(loop);return}
+    if(locked)return;
+    const q=BR.parseUniversalQR(raw);
+    if(!q){const n=Date.now();if(n-lastBad>1800){status('INVALID BARAMEEL QR — USE THE MASTER QR');BR.play('error');lastBad=n}raf=requestAnimationFrame(loop);return}
     locked=true;flash.classList.remove('on');void flash.offsetWidth;flash.classList.add('on');BR.play('scan');
     const ticketId=new URLSearchParams(location.search).get('ticket');
     const result=await BR.scanUniversal({ticketId});
@@ -92,10 +137,10 @@
       await BR.track('qr_scan',{reward:result.reward,mode:'universal'});
       const collection=result.reward.collection_id||result.reward.collection||'collection01';
       const image=result.reward.image_id||result.reward.image||'image01';
-      setTimeout(()=>{stop();BR.go(`screen06.html?collection=${encodeURIComponent(collection)}&image=${encodeURIComponent(image)}`)},420);return
+      setTimeout(()=>{stop();BR.go(`screen06.html?collection=${encodeURIComponent(collection)}&image=${encodeURIComponent(image)}`)},420);return;
     }
     const code=result?.code||'';const text=code==='BACKEND_NOT_CONFIGURED'?'CONNECT THE BARAMEEL GAME SERVER FIRST':code==='SCAN_TICKET_REQUIRED'?'SCAN TICKET REQUIRED':result?.error||'SCAN NOT AVAILABLE — TRY AGAIN';
-    status(text);BR.play('error');locked=false;
+    status(text);BR.play('error');locked=false;raf=requestAnimationFrame(loop);
   }
   open.onclick=e=>{e.preventDefault();start()};
   collections.onclick=e=>{e.preventDefault();stop();BR.goAfter('screen06.html','confirm',180)};
@@ -103,5 +148,5 @@
   window.addEventListener('pagehide',stop);
 })();
 </script>
-<script src="./register-sw.js?v=20260929-17"></script>
+<script src="./register-sw.js?v=20260929-18"></script>
 </body></html>

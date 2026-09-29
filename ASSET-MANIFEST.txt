@@ -46,4 +46,4 @@ assets/collections/collection01/masters/
 Keep the 10 master images. Do not create a QR folder inside the collection.
 The pieces are selected by the server-side reward engine, not by printed QR codes.
 
-V17: no legacy per-piece QR files. The only gameplay QR asset is assets/barameel-universal-qr.png.
+V18: no legacy per-piece QR files. The only gameplay QR asset is assets/barameel-universal-qr.png.

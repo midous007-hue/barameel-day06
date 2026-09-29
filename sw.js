@@ -1,5 +1,5 @@
-const CACHE='barameel-world-v17-shell';
-const CORE=['./','./index.html','./world.html','./run.html','./screen02.html','./screen03.html','./screen04.html','./screen05.html','./screen06.html','./styles.css','./config.js','./app.js'];
+const CACHE='barameel-world-v18-shell';
+const CORE=['./','./index.html','./world.html','./run.html','./screen02.html','./screen03.html','./screen04.html','./screen05.html','./screen06.html','./styles.css','./config.js','./app.js','./assets/screen01-start.webp','./assets/screen05-scanner.webp','./assets/screen06-puzzle.webp','./assets/barameel-world.webp','./assets/barameel-world-splash.webp','./assets/barameel-universal-qr.png','./audio/tap.wav','./audio/select.wav','./audio/confirm.wav','./audio/back.wav','./audio/scan.wav','./audio/error.wav','./audio/completion-arcade.wav','./audio/reward-levelup.mp3'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(xs=>Promise.all(xs.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{const c=r.clone();caches.open(CACHE).then(x=>x.put(e.request,c));return r}).catch(()=>caches.match(e.request)));});
