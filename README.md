@@ -1,4 +1,4 @@
-# BARAMEEL WORLD — MASTER PROJECT V16
+# BARAMEEL WORLD — MASTER PROJECT V17
 
 This repository is the clean master build for the current BARAMEEL digital experience.
 
@@ -89,3 +89,6 @@ Do not expose database service-role keys in GitHub Pages.
 ## Uploading artwork
 
 Use `ASSET-MANIFEST.txt` as the only current upload instruction. Do not create extra QR images. Do not rename approved assets.
+
+
+V17 UI regression fix: restored proven V12 runner-start, scanner, collection and classic arcade interaction geometry/audio behavior while retaining V16 server-first Universal QR architecture. Printed QR remains BARAMEEL-UNIVERSAL; scan entitlement/ticket is server-side.

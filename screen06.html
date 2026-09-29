@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <title>BARAMEEL RUN — ALEXANDRIA Collection</title>
-<link rel="stylesheet" href="./styles.css?v=20260929-16">
+<link rel="stylesheet" href="./styles.css?v=20260929-17">
 <link rel="preload" as="image" href="./assets/screen06-puzzle.webp">
 </head>
 <body>
@@ -24,7 +24,7 @@
   <div id="thumbs" class="collection-thumbs" aria-label="Collection images"></div>
   <div id="completeFlash" class="complete-flash" aria-hidden="true"></div>
 </main>
-<script src="./app.js?v=20260929-16"></script>
+<script src="./app.js?v=20260929-17"></script>
 <script>
 (async()=>{
   const params=new URLSearchParams(location.search);
@@ -89,8 +89,8 @@
       cell.classList.add(BR.hasPiece(collection,im.imageId,n)?'is-collected':'is-missing');
       grid.appendChild(cell);
     }
-    // The yellow 1–10 circles and the “/9” artwork are already part of the master screen art.
-    // Only the live numerator is drawn here, aligned immediately before the printed /9.
+    // The approved screen06 artwork already contains the yellow 1–10 circles and /9 labels.
+    // Do not draw duplicate number badges over the artwork.
     const count=document.createElement('span'); count.className='thumb-count'; count.textContent=String(BR.count(collection,im.imageId));
     wrap.append(grid,count);
     wrap.onclick=()=>{current=im; render(); BR.play('tap')};
@@ -142,5 +142,5 @@
   BR.track('collection_view');
 })();
 </script>
-<script src="./register-sw.js?v=20260929-16"></script>
+<script src="./register-sw.js?v=20260929-17"></script>
 </body></html>

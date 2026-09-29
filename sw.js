@@ -1,4 +1,4 @@
-const CACHE='barameel-world-v16-shell';
+const CACHE='barameel-world-v17-shell';
 const CORE=['./','./index.html','./world.html','./run.html','./screen02.html','./screen03.html','./screen04.html','./screen05.html','./screen06.html','./styles.css','./config.js','./app.js'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(xs=>Promise.all(xs.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
